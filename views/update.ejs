@@ -1,0 +1,36 @@
+<form method="post" action="/books/<%= book.id %>/update" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" value="<%= book.name %>" name="name">
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" value="<%= book.price %>" class="form-control" name="price">
+    </div>
+    <div class="form-group">
+        <label>Author</label>
+        <input type="text" value="<%= book.author %>" class="form-control" name="author">
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">Status</label>
+        <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" name="status"
+                        <%= (book.status == "new") ? "checked" : "" %>
+                       type="radio" id="inlineRadio1" value="new">
+                <label class="form-check-label" for="inlineRadio1">New</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                        <%= (book.status == "old") ? "checked" : "" %>
+                       name="status" type="radio" id="inlineRadio2" value="old">
+                <label class="form-check-label" for="inlineRadio2">Old</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>image</label>
+        <input type="file" value="<%= book.image %>" class="form-control" name=image>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
